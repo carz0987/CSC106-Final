@@ -1,6 +1,7 @@
 var plane = function()  {
+    fill(64, 145, 68);
     rect(125, 101, 63, 19);
-    rect(140, 93, 27, 11);
+    ellipse(156,104,30,7);
     triangle(127, 102, 67, 99, 127, 121);
     triangle(140, 102, 69, 99, 140, 93);
     rect(65, 82, 15, 19);
@@ -10,4 +11,3 @@ var plane = function()  {
 };
 
 plane();
-
