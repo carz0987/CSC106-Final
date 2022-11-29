@@ -1,1 +1,13 @@
-https://www.khanacademy.org/computer-programming/plane-alpha/5605396726726656
+var plane = function()  {
+    rect(125, 101, 63, 19);
+    rect(140, 93, 27, 11);
+    triangle(127, 102, 67, 99, 127, 121);
+    triangle(140, 102, 69, 99, 140, 93);
+    rect(65, 82, 15, 19);
+    rect(188, 104, 8, 11);
+    line(193, 133, 193, 87);
+    rect(132, 116, 42, 4);
+};
+
+plane();
+
