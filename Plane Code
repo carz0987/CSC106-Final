@@ -3,11 +3,34 @@ var plane = function()  {
     rect(125, 101, 63, 19);
     ellipse(156,104,30,7);
     triangle(127, 102, 67, 99, 127, 121);
-    triangle(140, 102, 69, 99, 140, 93);
-    rect(65, 82, 15, 19);
+    //triangle(140, 102, 69, 99, 140, 93);
+    //rect(65, 82, 15, 19);
     rect(188, 104, 8, 11);
     line(193, 133, 193, 87);
-    rect(132, 116, 42, 4);
+    //rect(132, 116, 42, 4);
+    ellipse(72,94,15,13);
+    line(147,109,134,93); //top
+    line(136,109,146,93); //top
+    line(171,109,161,93); //top
+    line(160,109,172,93); //top
+    line(147,123,137,114); //bottom
+    line(136,123,144,114); //bottom
+    line(172,123,163,114); //bottom
+    line(161,123,171,114); //bottom
+    ellipse(154,93,51,4);
+    ellipse(154,122,51,4);
+    //front wheel
+    fill(0, 0, 0);
+    line(172,123,186,132); //leg
+    ellipse(181,131,13,13); //wheel
+    fill(247, 250, 247);
+    ellipse(181,131,8,8); //wheel
+    //back wheel
+    fill(0, 0, 0);
+    line(128,123,126,127); //leg
+    ellipse(126,128,8,8); //wheel
+    fill(249, 252, 249);
+    ellipse(126,128,5,5); //wheel
 };
 
 plane();
