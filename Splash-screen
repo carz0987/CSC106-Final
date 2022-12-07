@@ -225,14 +225,14 @@ var Startbtn = new Button({ //button1
 //splash scene
 var splash =function(){ //Starting scene
     currentScene = 0;
-    background (221, 255, 0);
-    fill(131, 15, 133);
+    background (65, 168, 65);
+    fill(250, 245, 250);
     textSize(20);
     text ("      Click the button to start the game", 13,70);
     text (" by Jaymond Lei, and Qiang Dong ", 46, 356);
     Startbtn.draw();
     currentScene = 0;
-    drawMe(59,131,128);
+    drawMe(59,131,131);
     drawDong();
 };
 splash();
