@@ -3,7 +3,341 @@
 function drawDong(){
     
 var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
+    //shirt//BITMOJIS--------------------------------------------------------||
+
+function drawDong(){
+    
+var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
     //shirt
+noStroke();
+fill(179, 143, 77);
+    quad(bitmojiX+151*bitmojiH/150,bitmojiY+202*bitmojiH/150,bitmojiX+255*bitmojiH/150,bitmojiY+199*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+177*bitmojiH/150,bitmojiX+189*bitmojiH/150,bitmojiY+175*bitmojiH/150); //shirt
+    quad(bitmojiX+132*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+274*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+254*bitmojiH/150,bitmojiY+198*bitmojiH/150,bitmojiX+152*bitmojiH/150,bitmojiY+201*bitmojiH/150); //shirt bottom
+fill(247, 244, 244);
+    rect(bitmojiX+160*bitmojiH/150,bitmojiY+216*bitmojiH/150,86*bitmojiH/150,13*bitmojiH/150); //top on shirt
+    rect(bitmojiX+157*bitmojiH/150,bitmojiY+233*bitmojiH/150,93*bitmojiH/150,6*bitmojiH/150); //bottom on shirt
+
+};
+var drawneck = function(bitmojiX,bitmojiY,bitmojiH){
+    
+    //neck
+fill(247, 202, 153);
+noStroke();
+    quad(bitmojiX+189*bitmojiH/150,bitmojiY+178*bitmojiH/150,bitmojiX+191*bitmojiH/150,bitmojiY+175*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+174*bitmojiH/150,bitmojiX+200*bitmojiH/150,bitmojiY+142*bitmojiH/150); //neck
+    arc(bitmojiX+200*bitmojiH/150,bitmojiY+177*bitmojiH/150,20*bitmojiH/150,14*bitmojiH/150,-40,370);//neck bottom
+
+};
+var drawhead = function(bitmojiX,bitmojiY,bitmojiH){
+
+    //head
+    fill(247, 202, 153);
+    ellipse(bitmojiX+200*bitmojiH/150,bitmojiY+131*bitmojiH/150,56*bitmojiH/150,75*bitmojiH/150); //face
+stroke(0, 0, 0);
+    line(bitmojiX+193*bitmojiH/150,bitmojiY+130*bitmojiH/150,bitmojiX+178*bitmojiH/150,bitmojiY+128*bitmojiH/150); //left eyebrow
+    line(bitmojiX+221*bitmojiH/150,bitmojiY+131*bitmojiH/150,bitmojiX+206*bitmojiH/150,bitmojiY+132*bitmojiH/150); //right eyebrow
+fill(240, 235, 235);
+    ellipse(bitmojiX+214*bitmojiH/150,bitmojiY+138*bitmojiH/150,12*bitmojiH/150,5*bitmojiH/150); //right eye
+    ellipse(bitmojiX+187*bitmojiH/150,bitmojiY+137*bitmojiH/150,12*bitmojiH/150,5*bitmojiH/150); //left eye
+fill(10, 1, 1);
+    ellipse(bitmojiX+214*bitmojiH/150,bitmojiY+138*bitmojiH/150,-3*bitmojiH/150,4*bitmojiH/150); //right eyeball
+    ellipse(bitmojiX+187*bitmojiH/150,bitmojiY+137*bitmojiH/150,-3*bitmojiH/150,4*bitmojiH/150); //left eyeball
+fill(235, 181, 184);
+noStroke();
+    ellipse(bitmojiX+200*bitmojiH/150,bitmojiY+156*bitmojiH/150,14*bitmojiH/150,5*bitmojiH/150); //mouse
+stroke(232, 148, 193);
+    line(bitmojiX+195*bitmojiH/150,bitmojiY+156*bitmojiH/150,bitmojiX+205*bitmojiH/150,bitmojiY+156*bitmojiH/150); //lips
+    
+};    
+var drawhat = function(bitmojiX,bitmojiY,bitmojiH){
+    
+    //hat
+fill(8, 8, 8);
+    quad(bitmojiX+235*bitmojiH/150,bitmojiY+128*bitmojiH/150,bitmojiX+165*bitmojiH/150,bitmojiY+126*bitmojiH/150,bitmojiX+168*bitmojiH/150,bitmojiY+106*bitmojiH/150,bitmojiX+229*bitmojiH/150,bitmojiY+101*bitmojiH/150);//hat middle
+noStroke();
+    arc(bitmojiX+199*bitmojiH/150,bitmojiY+104*bitmojiH/150,62*bitmojiH/150,29*bitmojiH/150,-316,56); //hat top
+fill(5, 0, 0);
+    arc(bitmojiX+172*bitmojiH/150,bitmojiY+130*bitmojiH/150,17*bitmojiH/150,28*bitmojiH/150,-290,-77); //hat left
+    arc(bitmojiX+228*bitmojiH/150,bitmojiY+132*bitmojiH/150,15*bitmojiH/150,32*bitmojiH/150,-91,114); //hat right
+fill(247, 202, 153);
+stroke(107, 78, 56);
+    arc(bitmojiX+200*bitmojiH/150,bitmojiY+128*bitmojiH/150,55*bitmojiH/150,27*bitmojiH/150,-176,8); //hat bottom
+    
+line(bitmojiX+250*bitmojiH/150,bitmojiY+239*bitmojiH/150,bitmojiX+244*bitmojiH/150,bitmojiY+206*bitmojiH/150); //right shirt line
+    line(bitmojiX+156*bitmojiH/150,bitmojiY+241*bitmojiH/150,bitmojiX+162*bitmojiH/150,bitmojiY+210*bitmojiH/150); //left shirt line
+fill(1, 4, 10);
+    text("QD",bitmojiX+216*bitmojiH/150,bitmojiY+207*bitmojiH/150);
+    
+};
+var drawnose = function(bitmojiX,bitmojiY,bitmojiH){
+
+    //nose and ears
+fill(240, 182, 120);
+noStroke();
+    bezier(bitmojiX+203*bitmojiH/150,bitmojiY+149*bitmojiH/150,bitmojiX+202*bitmojiH/150,bitmojiY+122*bitmojiH/150,bitmojiX+193*bitmojiH/150,bitmojiY+163*bitmojiH/150,bitmojiX+202*bitmojiH/150,bitmojiY+148*bitmojiH/150); //nose
+    fill(247, 202, 153);
+     arc(bitmojiX+173*bitmojiH/150,bitmojiY+134*bitmojiH/150,10*bitmojiH/150,14*bitmojiH/150,-324,-71); //left ear
+    arc(bitmojiX+227*bitmojiH/150,bitmojiY+137*bitmojiH/150,8*bitmojiH/150,14*bitmojiH/150,-101,301); //right ear
+
+};
+var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
+   
+    drawshirt(bitmojiX,bitmojiY,bitmojiH);
+    drawneck(bitmojiX,bitmojiY,bitmojiH);
+    drawhead(bitmojiX,bitmojiY,bitmojiH);
+    drawhat(bitmojiX,bitmojiY,bitmojiH);
+    drawnose(bitmojiX,bitmojiY,bitmojiH);
+    
+};
+drawbitmoji(98,101,100);
+}
+drawDong();
+var drawHairAndBody = function(x,y,h)
+{
+    var size = h/362;
+    
+    fill(0, 59, 23);
+    quad(x+266*size,y+230*size,x+136*size,y+227*size,x+100*size,y+362*size,x+315*size,y+362*size);//torso
+    fill(0, 0, 0);
+    bezier(x+283*size,y+183*size,x+313*size,y+71*size,x+78*size,y+41*size,x+127*size,y+180*size);//hair
+};
+//var eyesY = 77;
+//var mouthY =117;
+
+var faceSideburns = function(x,y,h)
+{
+    var size = h/362;
+//eyes, mouth, sideburns
+    fill(255, 247, 176);
+    ellipse(x+202*size, y+186*size, 132*size, 132*size);
+    fill(0,0,0);
+    ellipse(x+276*size,y+147*size, 55*size, 83*size);
+    noFill();
+    line(x+171*size, y+177*size, x+140*size, y+177*size);
+    line(x+240*size, y+177*size, x+209*size, y+177*size);
+    line(x+230*size, y+217*size, x+163*size, y+217*size);
+};
+
+var faceFeat = function(x,y,h)
+{
+    var size = h/362;
+    fill(0, 0, 0);
+    rect(x+136*size,y+132*size,107*size,-26*size);
+    fill(255, 247, 176);
+    //var sidebX = 37;
+    //var sidebY = 30;
+    rect(x+130*size,y+176*size,7*size,35*size);
+    rect(x+263*size,y+181*size,15*size,35*size);
+    fill(0, 0, 0);
+    rect(x+125*size,y+154*size,7*size,35*size);
+    rect(x+275*size,y+159*size,15*size,35*size);
+};
+
+var stache = function(x,y,h)
+{
+    var size = h/362;
+    fill(0, 0, 0);
+    //eyebrows
+    rect(x+206*size,y+148*size,43*size,3*size);
+    rect(x+132*size,y+148*size,43*size,3*size);
+    //moustache
+    rect(x+162*size,y+204*size,25*size,3*size);
+    rect(x+193*size,y+204*size,25*size,3*size);
+};
+
+var glasses = function(x,y,h)
+{
+    var size = h/362;
+    //glasses
+    fill(0, 0, 0);
+    rect(x+130*size,y+160*size,160*size,3*size);
+    rect(x+132*size,y+183*size,46*size,3*size);
+    rect(x+202*size,y+183*size,51*size,3*size);
+    rect(x+202*size,y+183*size,4*size,-22*size);
+    rect(x+249*size,y+183*size,4*size,-22*size);
+    rect(x+174*size,y+183*size,4*size,-22*size);
+    rect(x+133*size,y+183*size,4*size,-22*size);
+};
+
+var initials = function(x,y,h)
+{
+    var size = h/362;
+    //initials
+    stroke(255, 255, 255);
+    fill(255, 255, 255);
+    rect(x+182*size,y+289*size,4*size,56*size);
+    rect(x+228*size,y+289*size,4*size,57*size);
+    rect(x+231*size,y+341*size,40*size,5*size);
+    rect(x+144*size,y+341*size,40*size,5*size);
+    rect(x+144*size,y+346*size,4*size,-17*size);
+};
+
+var drawMe = function(x,y,h){
+    var size = h/100;
+    stroke(0, 0, 0);
+    drawHairAndBody(x,y,h);
+    faceSideburns(x,y,h);
+    faceFeat(x,y,h);
+    stache(x,y,h);
+    glasses(x,y,h);
+    initials(x,y,h);
+};
+
+drawMe();
+
+//BITMOJI END------------------------------------------------||
+
+//BUTTONS----------------------------------------------------||
+
+var currentTime = 0;
+var currentScene = 0;
+
+//button code
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() { // draws the button
+    fill(22, 24, 33);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(255, 255, 255);
+    textSize(25);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+35, this.y+this.height/5);
+};
+Button.prototype.isMouseInside = function() { // geometry check for if the mouse is inside
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() { // if the geometry check is true then do onCLick
+    //if (this.isMouseInside()) {
+        this.onClick();
+    //}
+};
+
+
+//start button 
+var Startbtn = new Button({ //button1
+    x: 117,
+    y: 290,
+    label: "START",
+    onClick: function() {
+        
+    }
+});
+
+//BUTTONS END----------------------------------------------||
+
+//SPLASH SCREEN--------------------------------------------||
+
+var splash =function(){ //Starting scene
+    currentScene = 0;
+    background (65, 168, 65);
+    fill(250, 245, 250);
+    textSize(50);
+    text("FLIPPY PLANES", 10, 54); //title text
+    textSize(14);
+    text ("Click Start to start the game!", 108,121); //subtext
+    text (" by Jaymond Lei, and Qiang Dong ", 84, 356); //authors
+    Startbtn.draw();
+    currentScene = 0;
+    
+    //bitmojis
+    
+    drawMe(75,131,131);
+    drawDong();
+};
+splash();
+
+draw = function() {
+    if (currentScene ===0 ){
+        splash();
+    }
+    else if (currentScene === 1) {
+        
+    }
+};
+
+mouseClicked = function() {
+    Startbtn.handleMouseClick();  
+};
+
+//SPLASH SCREEN END----------------------------------------------------||
+
+//PLANE CODE-----------------------------------------------------------||
+var plane = function()  {
+    fill(64, 145, 68);
+    rect(125, 101, 63, 19);
+    ellipse(156,104,30,7);
+    triangle(127, 102, 67, 99, 127, 121);
+    //triangle(140, 102, 69, 99, 140, 93);
+    //rect(65, 82, 15, 19);
+    rect(188, 104, 8, 11);
+    line(193, 133, 193, 87);
+    //rect(132, 116, 42, 4);
+    ellipse(72,94,15,13);
+    line(147,109,134,93); //top
+    line(136,109,146,93); //top
+    line(171,109,161,93); //top
+    line(160,109,172,93); //top
+    line(147,123,137,114); //bottom
+    line(136,123,144,114); //bottom
+    line(172,123,163,114); //bottom
+    line(161,123,171,114); //bottom
+    ellipse(154,93,51,4);
+    ellipse(154,122,51,4);
+    //front wheel
+    fill(0, 0, 0);
+    line(172,123,186,132); //leg
+    ellipse(181,131,13,13); //wheel
+    fill(247, 250, 247);
+    ellipse(181,131,8,8); //wheel
+    //back wheel
+    fill(0, 0, 0);
+    line(128,123,126,127); //leg
+    ellipse(126,128,8,8); //wheel
+    fill(249, 252, 249);
+    ellipse(126,128,5,5); //wheel
+};
+
+plane();
+//PLANE CODE END-------------------------------------------------------||
+
+//GAME SCREEN----------------------------------------------------------||
+
+var score = 0;
+
+var gameScreen = function(){ //Game screen function
+    currentScene = 1;
+    background (173, 255, 241);
+    fill(214, 132, 0);
+    textSize(15);
+    text("Score: " + score, 14, 22); //score text
+
+};
+gameScreen();
+
+draw = function() {
+    if (currentScene === 0 ){
+        splash();
+    }
+    else if (currentScene === 1) {
+        gameScreen();
+    }
+};
+
+mouseClicked = function() {
+    Startbtn.handleMouseClick();  
+};
+
+//GAMESCREEN END------------------------------------||
 noStroke();
 fill(179, 143, 77);
     quad(bitmojiX+151*bitmojiH/150,bitmojiY+202*bitmojiH/150,bitmojiX+255*bitmojiH/150,bitmojiY+199*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+177*bitmojiH/150,bitmojiX+189*bitmojiH/150,bitmojiY+175*bitmojiH/150); //shirt
