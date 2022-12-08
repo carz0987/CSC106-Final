@@ -227,12 +227,17 @@ var splash =function(){ //Starting scene
     currentScene = 0;
     background (65, 168, 65);
     fill(250, 245, 250);
-    textSize(20);
-    text ("      Click the button to start the game", 13,70);
-    text (" by Jaymond Lei, and Qiang Dong ", 46, 356);
+    textSize(30);
+    text("FLIPPY PLANES", 79, 54); //title text
+    textSize(14);
+    text ("Click Start to start the game!", 108,121); //subtext
+    text (" by Jaymond Lei, and Qiang Dong ", 84, 356); //authors
     Startbtn.draw();
     currentScene = 0;
-    drawMe(59,131,131);
+    
+    //bitmojis
+    
+    drawMe(75,131,131);
     drawDong();
 };
 splash();
