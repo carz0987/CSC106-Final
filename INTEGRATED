@@ -251,19 +251,6 @@ var splash =function(){ //Starting scene
 };
 splash();
 
-draw = function() {
-    if (currentScene ===0 ){
-        splash();
-    }
-    else if (currentScene === 1) {
-        
-    }
-};
-
-mouseClicked = function() {
-    Startbtn.handleMouseClick();  
-};
-
 //SPLASH SCREEN END----------------------------------------------------||
 
 //PLANE CODE-----------------------------------------------------------||
@@ -319,6 +306,10 @@ var gameScreen = function(){ //Game screen function
 };
 gameScreen();
 
+//GAMESCREEN END------------------------------------||
+
+//SCENE DRAW FUNCTION-------------------------------||
+
 draw = function() {
     if (currentScene === 0 ){
         splash();
@@ -332,4 +323,4 @@ mouseClicked = function() {
     Startbtn.handleMouseClick();  
 };
 
-//GAMESCREEN END------------------------------------||
+//SCENE DRAW FUNCTION END---------------------------||
