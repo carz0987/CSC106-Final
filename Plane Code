@@ -1,36 +1,33 @@
-var plane = function()  {
+var plane = function(px,py,ph)  {
     fill(64, 145, 68);
-    rect(125, 101, 63, 19);
-    ellipse(156,104,30,7);
-    triangle(127, 102, 67, 99, 127, 121);
-    //triangle(140, 102, 69, 99, 140, 93);
-    //rect(65, 82, 15, 19);
-    rect(188, 104, 8, 11);
-    line(193, 133, 193, 87);
-    //rect(132, 116, 42, 4);
-    ellipse(72,94,15,13);
-    line(147,109,134,93); //top
-    line(136,109,146,93); //top
-    line(171,109,161,93); //top
-    line(160,109,172,93); //top
-    line(147,123,137,114); //bottom
-    line(136,123,144,114); //bottom
-    line(172,123,163,114); //bottom
-    line(161,123,171,114); //bottom
-    ellipse(154,93,51,4);
-    ellipse(154,122,51,4);
+    rect(px+125*ph/150, py+101*ph/150, 63*ph/150, 19*ph/150);
+    ellipse(px+156*ph/150,py+104*ph/150,30*ph/150,7*ph/150);
+    triangle(px+127*ph/150, py+102*ph/150, px+67*ph/150, py+99*ph/150, px+127*ph/150, py+121*ph/150);
+    rect(px+188*ph/150, py+104*ph/150, 8*ph/150, 11*ph/150);
+    line(px+193*ph/150, py+133*ph/150, px+193*ph/150, py+87*ph/150);
+    ellipse(px+72*ph/150,py+94*ph/150,15*ph/150,13*ph/150);
+    line(px+147*ph/150,py+109*ph/150,px+134*ph/150,py+93*ph/150); //top
+    line(px+136*ph/150,py+109*ph/150,px+146*ph/150,py+93*ph/150); //top
+    line(px+171*ph/150,py+109*ph/150,px+161*ph/150,py+93*ph/150); //top
+    line(px+160*ph/150,py+109*ph/150,px+172*ph/150,py+93*ph/150); //top
+    line(px+147*ph/150,py+123*ph/150,px+137*ph/150,py+114*ph/150); //bottom
+    line(px+136*ph/150,py+123*ph/150,px+144*ph/150,py+114*ph/150); //bottom
+    line(px+172*ph/150,py+123*ph/150,px+163*ph/150,py+114*ph/150); //bottom
+    line(px+161*ph/150,py+123*ph/150,px+171*ph/150,py+114*ph/150); //bottom
+    ellipse(px+154*ph/150,py+93*ph/150,51*ph/150,4*ph/150);
+    ellipse(px+154*ph/150,py+122*ph/150,51*ph/150,4*ph/150);
     //front wheel
     fill(0, 0, 0);
-    line(172,123,186,132); //leg
-    ellipse(181,131,13,13); //wheel
+    line(px+172*ph/150,py+123*ph/150,px+186*ph/150,py+132*ph/150); //leg
+    ellipse(px+181*ph/150,py+131*ph/150,13*ph/150,13*ph/150); //wheel
     fill(247, 250, 247);
-    ellipse(181,131,8,8); //wheel
+    ellipse(px+181*ph/150,py+131*ph/150,8*ph/150,8*ph/150); //wheel
     //back wheel
     fill(0, 0, 0);
-    line(128,123,126,127); //leg
-    ellipse(126,128,8,8); //wheel
+    line(px+128*ph/150,py+123*ph/150,px+126*ph/150,py+127*ph/150); //leg
+    ellipse(px+126*ph/150,py+128*ph/150,8*ph/150,8*ph/150); //wheel
     fill(249, 252, 249);
-    ellipse(126,128,5,5); //wheel
+    ellipse(px+126*ph/150,py+128*ph/150,5*ph/150,5*ph/150); //wheel
 };
 
-plane();
+plane(100,100,136);
