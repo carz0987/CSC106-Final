@@ -1,0 +1,289 @@
+//draw bitmoji
+var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
+    //shirt
+noStroke();
+fill(179, 143, 77);
+    quad(bitmojiX+151*bitmojiH/150,bitmojiY+202*bitmojiH/150,bitmojiX+255*bitmojiH/150,bitmojiY+199*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+177*bitmojiH/150,bitmojiX+189*bitmojiH/150,bitmojiY+175*bitmojiH/150); //shirt
+    quad(bitmojiX+132*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+274*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+254*bitmojiH/150,bitmojiY+198*bitmojiH/150,bitmojiX+152*bitmojiH/150,bitmojiY+201*bitmojiH/150); //shirt bottom
+fill(247, 244, 244);
+    rect(bitmojiX+162*bitmojiH/150,bitmojiY+216*bitmojiH/150,86*bitmojiH/150,13*bitmojiH/150); //top on shirt
+    rect(bitmojiX+158*bitmojiH/150,bitmojiY+233*bitmojiH/150,93*bitmojiH/150,6*bitmojiH/150); //bottom on shirt
+
+};
+var drawneck = function(bitmojiX,bitmojiY,bitmojiH){
+    
+    //neck
+fill(247, 202, 153);
+noStroke();
+    quad(bitmojiX+189*bitmojiH/150,bitmojiY+178*bitmojiH/150,bitmojiX+191*bitmojiH/150,bitmojiY+175*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+174*bitmojiH/150,bitmojiX+200*bitmojiH/150,bitmojiY+142*bitmojiH/150); //neck
+    arc(bitmojiX+200*bitmojiH/150,bitmojiY+177*bitmojiH/150,20*bitmojiH/150,14*bitmojiH/150,-40,370);//neck bottom
+
+};
+var drawhead = function(bitmojiX,bitmojiY,bitmojiH){
+
+    //head
+    fill(247, 202, 153);
+    ellipse(bitmojiX+200*bitmojiH/150,bitmojiY+131*bitmojiH/150,56*bitmojiH/150,75*bitmojiH/150); //face
+stroke(0, 0, 0);
+    line(bitmojiX+193*bitmojiH/150,bitmojiY+130*bitmojiH/150,bitmojiX+178*bitmojiH/150,bitmojiY+128*bitmojiH/150); //left eyebrow
+    line(bitmojiX+221*bitmojiH/150,bitmojiY+131*bitmojiH/150,bitmojiX+206*bitmojiH/150,bitmojiY+132*bitmojiH/150); //right eyebrow
+fill(240, 235, 235);
+    ellipse(bitmojiX+214*bitmojiH/150,bitmojiY+138*bitmojiH/150,12*bitmojiH/150,5*bitmojiH/150); //right eye
+    ellipse(bitmojiX+187*bitmojiH/150,bitmojiY+137*bitmojiH/150,12*bitmojiH/150,5*bitmojiH/150); //left eye
+fill(10, 1, 1);
+    ellipse(bitmojiX+214*bitmojiH/150,bitmojiY+138*bitmojiH/150,-3*bitmojiH/150,4*bitmojiH/150); //right eyeball
+    ellipse(bitmojiX+187*bitmojiH/150,bitmojiY+137*bitmojiH/150,-3*bitmojiH/150,4*bitmojiH/150); //left eyeball
+fill(235, 181, 184);
+noStroke();
+    ellipse(bitmojiX+200*bitmojiH/150,bitmojiY+156*bitmojiH/150,14*bitmojiH/150,5*bitmojiH/150); //mouse
+stroke(232, 148, 193);
+    line(bitmojiX+195*bitmojiH/150,bitmojiY+156*bitmojiH/150,bitmojiX+205*bitmojiH/150,bitmojiY+156*bitmojiH/150); //lips
+    
+};    
+var drawhat = function(bitmojiX,bitmojiY,bitmojiH){
+    
+    //hat
+fill(8, 8, 8);
+    quad(bitmojiX+235*bitmojiH/150,bitmojiY+128*bitmojiH/150,bitmojiX+165*bitmojiH/150,bitmojiY+126*bitmojiH/150,bitmojiX+168*bitmojiH/150,bitmojiY+106*bitmojiH/150,bitmojiX+229*bitmojiH/150,bitmojiY+101*bitmojiH/150);//hat middle
+noStroke();
+    arc(bitmojiX+199*bitmojiH/150,bitmojiY+104*bitmojiH/150,62*bitmojiH/150,29*bitmojiH/150,-316,56); //hat top
+fill(5, 0, 0);
+    arc(bitmojiX+172*bitmojiH/150,bitmojiY+130*bitmojiH/150,17*bitmojiH/150,28*bitmojiH/150,-290,-77); //hat left
+    arc(bitmojiX+228*bitmojiH/150,bitmojiY+132*bitmojiH/150,15*bitmojiH/150,32*bitmojiH/150,-91,114); //hat right
+fill(247, 202, 153);
+stroke(107, 78, 56);
+    arc(bitmojiX+200*bitmojiH/150,bitmojiY+128*bitmojiH/150,55*bitmojiH/150,27*bitmojiH/150,-176,8); //hat bottom
+    
+line(bitmojiX+250*bitmojiH/150,bitmojiY+239*bitmojiH/150,bitmojiX+244*bitmojiH/150,bitmojiY+206*bitmojiH/150); //right shirt line
+    line(bitmojiX+156*bitmojiH/150,bitmojiY+241*bitmojiH/150,bitmojiX+162*bitmojiH/150,bitmojiY+210*bitmojiH/150); //left shirt line
+    
+};
+var drawnose = function(bitmojiX,bitmojiY,bitmojiH){
+
+    //nose and ears
+fill(240, 182, 120);
+noStroke();
+    bezier(bitmojiX+203*bitmojiH/150,bitmojiY+149*bitmojiH/150,bitmojiX+202*bitmojiH/150,bitmojiY+122*bitmojiH/150,bitmojiX+193*bitmojiH/150,bitmojiY+163*bitmojiH/150,bitmojiX+202*bitmojiH/150,bitmojiY+148*bitmojiH/150); //nose
+    fill(247, 202, 153);
+     arc(bitmojiX+173*bitmojiH/150,bitmojiY+134*bitmojiH/150,10*bitmojiH/150,14*bitmojiH/150,-324,-71); //left ear
+    arc(bitmojiX+227*bitmojiH/150,bitmojiY+137*bitmojiH/150,8*bitmojiH/150,14*bitmojiH/150,-101,301); //right ear
+
+};
+var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
+   
+    drawshirt(bitmojiX,bitmojiY,bitmojiH);
+    drawneck(bitmojiX,bitmojiY,bitmojiH);
+    drawhead(bitmojiX,bitmojiY,bitmojiH);
+    drawhat(bitmojiX,bitmojiY,bitmojiH);
+    drawnose(bitmojiX,bitmojiY,bitmojiH);
+    
+};
+drawbitmoji(100,141,39);
+
+
+var score = 0;
+var numCars = 100;
+var carScene = 0;
+var carSpeed = random(1,5);
+var nextScore = 1; // 0 count from bottom, 1 count from top
+var currentScene = 0; //0 = splash screen, 1=game screen
+
+
+var Button = function(config) {
+    this.x = config.x || 0;
+    this.y = config.y || 0;
+    this.width = config.width || 150;
+    this.height = config.height || 50;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() { // draws the button
+    fill(22, 24, 33);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(255, 255, 255);
+    textSize(27);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+47, this.y+this.height/5);
+};
+
+Button.prototype.isMouseInside = function() { // geometry check for if the mouse is inside
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() { // if the geometry check is true then do onCLick
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+var Pausebtn = new Button({ // start button
+    x: -28,
+    y: 350,
+    label: "Pause", 
+    onClick: function() {
+        carSpeed = 0;
+    }
+});
+var Resumebtn = new Button({ // start button
+    x: -28,
+    y: 290,
+    label: "Resume", 
+    onClick: function() {
+        carSpeed = random(1,5);
+    }
+});
+
+
+
+var drawScene1 = function(){ //game scene
+var drawBitmoji = function (x,y,h)
+{
+    drawbitmoji(x,y,h,h);
+};
+
+//Bitmoji object class
+var Bitmoji = function(x, y) {             //Bitmoji constructor
+    this.x = x;
+    this.y = y;
+    this.cars = 0;              // Score
+};
+
+Bitmoji.prototype.draw = function() {
+    this.y = constrain(this.y, 0, height-85);
+    drawBitmoji(this.x, this.y, 50);
+};
+
+Bitmoji.prototype.hop = function() {
+    this.y -= 5;
+};
+
+Bitmoji.prototype.fall = function() {
+    this.y += 5;
+};
+
+Bitmoji.prototype.checkForcarGrab = function(car) {
+    if ((car.x >= this.x && car.x <= (this.x + 40)) &&
+        (car.y >= this.y && car.y <= (this.y + 40))) {
+        car.y = -400;  //car disappears
+        score--;   //subtract one from global variable score
+    }
+};
+
+
+//cars object class
+var Car = function(x, y) {  //car constructor
+    this.x = x;
+    this.y = y;
+};
+
+
+Car.prototype.draw = function() {
+stroke(0,0,0);
+fill(222, 200, 36);
+ellipse(this.x+167,this.y+218,99,16);
+rect(this.x+173,this.y+205,75,23,5);
+rect(this.x+145,this.y+209,23,17,5);
+quad(this.x+174,this.y+206,this.x+163,this.y+209,this.x+163,this.y+226,this.x+174,this.y+228);
+};
+
+var bitmoji = new Bitmoji(193, 315);
+
+var cars = [];
+for (var i = 0; i <= numCars ; i++) {  //place 40 cars in the array, spaced 40px for X, random y
+    cars.push(new Car(i * 150 + 300, random(-180, 250)));  //call car constructor
+}
+
+
+
+draw = function() {
+    // static
+    background(247, 252, 252);
+    fill(130, 79, 43);
+    rectMode(CORNER);
+    rect(0, height*0.00, width, height*0.10);  //top dirt at Bitmojis feet
+
+
+    for (var i = 0; i < cars.length; i++) {
+        cars[i].draw();      //draw a car
+        bitmoji.checkForcarGrab(cars[i]);  
+        cars[i].x -= carSpeed;  //move car left    
+    }
+      if (bitmoji.y<50 && nextScore ===1)
+    {
+         score = score + 2;   
+         nextScore = 2;
+    }
+
+    else if (bitmoji.y>275 && nextScore ===2)
+    {
+         score = score + 2;  
+         nextScore = 1;
+    }
+    fill(247, 244, 244);
+    textSize(18);
+    text("Score: " + score, 20, 11);
+    text("Speed: " + carSpeed, 131, 11);
+    currentScene = 1;
+
+
+    if (keyIsPressed && key.code === 32) {
+        bitmoji.hop();
+    } else {
+        bitmoji.fall();
+    }
+    bitmoji.draw();
+    Pausebtn.draw();
+    Resumebtn.draw();
+};
+
+};
+
+var Startbtn = new Button({ // start button
+    x: 123,
+    y: 290,
+    label: "Start", 
+    onClick: function() {
+        drawScene1();
+    }
+});
+
+
+var splash = function ()
+    {
+        background (27, 128, 78);
+        fill(8, 2, 8);
+        textSize(20);
+        text ("Click the button to start the frogger game", 13,47);
+        text ("  by Qiang", 248, 241);
+        Startbtn.draw();
+        drawbitmoji(42,65,108);
+        currentScene = 0;
+};
+
+draw = function() {
+    if (currentScene ===0 ){
+        splash();
+    }
+    else if (currentScene === 1) {
+        drawScene1();
+    }
+};
+
+mouseClicked = function(){
+     if ( currentScene === 0){
+        Startbtn.handleMouseClick();
+     }
+     if ( currentScene === 1){
+        Pausebtn.handleMouseClick();
+        
+     }
+     
+     if ( currentScene === 1){
+        Resumebtn.handleMouseClick();
+        
+     }
+};
