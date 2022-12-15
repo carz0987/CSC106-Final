@@ -79,6 +79,39 @@ var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
     
 };
 drawbitmoji(100,141,39);
+var plane = function(px,py,ph)  {
+    fill(64, 145, 68);
+    rect(px+125*ph/150, py+101*ph/150, 63*ph/150, 19*ph/150);
+    ellipse(px+156*ph/150,py+104*ph/150,30*ph/150,7*ph/150);
+    triangle(px+127*ph/150, py+102*ph/150, px+67*ph/150, py+99*ph/150, px+127*ph/150, py+121*ph/150);
+    rect(px+188*ph/150, py+104*ph/150, 8*ph/150, 11*ph/150);
+    line(px+193*ph/150, py+133*ph/150, px+193*ph/150, py+87*ph/150);
+    ellipse(px+72*ph/150,py+94*ph/150,15*ph/150,13*ph/150);
+    line(px+147*ph/150,py+109*ph/150,px+134*ph/150,py+93*ph/150); //top
+    line(px+136*ph/150,py+109*ph/150,px+146*ph/150,py+93*ph/150); //top
+    line(px+171*ph/150,py+109*ph/150,px+161*ph/150,py+93*ph/150); //top
+    line(px+160*ph/150,py+109*ph/150,px+172*ph/150,py+93*ph/150); //top
+    line(px+147*ph/150,py+123*ph/150,px+137*ph/150,py+114*ph/150); //bottom
+    line(px+136*ph/150,py+123*ph/150,px+144*ph/150,py+114*ph/150); //bottom
+    line(px+172*ph/150,py+123*ph/150,px+163*ph/150,py+114*ph/150); //bottom
+    line(px+161*ph/150,py+123*ph/150,px+171*ph/150,py+114*ph/150); //bottom
+    ellipse(px+154*ph/150,py+93*ph/150,51*ph/150,4*ph/150);
+    ellipse(px+154*ph/150,py+122*ph/150,51*ph/150,4*ph/150);
+    //front wheel
+    fill(0, 0, 0);
+    line(px+172*ph/150,py+123*ph/150,px+186*ph/150,py+132*ph/150); //leg
+    ellipse(px+181*ph/150,py+131*ph/150,13*ph/150,13*ph/150); //wheel
+    fill(247, 250, 247);
+    ellipse(px+181*ph/150,py+131*ph/150,8*ph/150,8*ph/150); //wheel
+    //back wheel
+    fill(0, 0, 0);
+    line(px+128*ph/150,py+123*ph/150,px+126*ph/150,py+127*ph/150); //leg
+    ellipse(px+126*ph/150,py+128*ph/150,8*ph/150,8*ph/150); //wheel
+    fill(249, 252, 249);
+    ellipse(px+126*ph/150,py+128*ph/150,5*ph/150,5*ph/150); //wheel
+};
+
+
 
 
 var score = 0;
@@ -120,6 +153,7 @@ Button.prototype.handleMouseClick = function() { // if the geometry check is tru
     }
 };
 
+
 var Pausebtn = new Button({ // start button
     x: -28,
     y: 350,
@@ -142,7 +176,7 @@ var Resumebtn = new Button({ // start button
 var drawScene1 = function(){ //game scene
 var drawBitmoji = function (x,y,h)
 {
-    drawbitmoji(x,y,h,h);
+    plane(x,y,h,h);
 };
 
 //Bitmoji object class
@@ -154,7 +188,7 @@ var Bitmoji = function(x, y) {             //Bitmoji constructor
 
 Bitmoji.prototype.draw = function() {
     this.y = constrain(this.y, 0, height-85);
-    drawBitmoji(this.x, this.y, 50);
+    drawBitmoji(this.x,this.y, 150);
 };
 
 Bitmoji.prototype.hop = function() {
@@ -190,7 +224,7 @@ rect(this.x+145,this.y+209,23,17,5);
 quad(this.x+174,this.y+206,this.x+163,this.y+209,this.x+163,this.y+226,this.x+174,this.y+228);
 };
 
-var bitmoji = new Bitmoji(193, 315);
+var bitmoji = new Bitmoji(0, 100);
 
 var cars = [];
 for (var i = 0; i <= numCars ; i++) {  //place 40 cars in the array, spaced 40px for X, random y
@@ -237,7 +271,6 @@ draw = function() {
     }
     bitmoji.draw();
     Pausebtn.draw();
-    Resumebtn.draw();
 };
 
 };
