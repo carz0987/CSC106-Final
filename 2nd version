@@ -192,11 +192,11 @@ Bitmoji.prototype.draw = function() {
 };
 
 Bitmoji.prototype.hop = function() {
-    this.y -= 5;
+    this.y -= 3;
 };
 
 Bitmoji.prototype.fall = function() {
-    this.y += 5;
+    this.y += 3;
 };
 
 Bitmoji.prototype.checkForcarGrab = function(car) {
