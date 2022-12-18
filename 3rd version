@@ -131,7 +131,7 @@ var Button = function(config) {
 };
 
 Button.prototype.draw = function() { // draws the button
-    fill(22, 24, 33);
+    fill(0,0,0);
     rect(this.x, this.y, this.width, this.height, 35);
     fill(255, 255, 255);
     textSize(27);
@@ -188,7 +188,7 @@ var Plane = function(x, y) {             //plane constructor
 
 Plane.prototype.draw = function() {
     this.y = constrain(this.y, 0, height-85);
-    drawplane(this.x,this.y, 154);
+    plane(this.x,this.y, 154);
 };
 
 Plane.prototype.hop = function() {
@@ -226,7 +226,7 @@ quad(this.x+174,  this.y+255, this.x+166, this.y+253, this.x+166, this.y+246, th
 
 };
 
-var plane = new plane(0, 100);
+var plane = new Plane(0, 100);
 
 var blts = [];     
 for (var i = 0; i <= numBlts ; i++) {  //place 40 blts in the array, spaced 40px for X, random y
@@ -238,7 +238,7 @@ for (var i = 0; i <= numBlts ; i++) {  //place 40 blts in the array, spaced 40px
 draw = function() {
     // static
     background(247, 252, 252);
-    fill(130, 79, 43);
+    fill(0,0, 0);
     rectMode(CORNER);
     rect(0, height*0.00, width, height*0.10);  //top dirt at planes feet
 
@@ -290,6 +290,20 @@ var splash = function ()
         currentScene = 0;
 };
 
+var drawScene2 = function() { 
+    text("GAME OVER!",100,100);   
+    
+
+};
+
+draw = function() {
+      if (plane.y<275 )
+    {
+        drawScene2();
+    }  
+    
+    
+};
 draw = function() {
     if (currentScene ===0 ){
         splash();
@@ -297,6 +311,7 @@ draw = function() {
     else if (currentScene === 1) {
         drawScene1();
     }
+
 };
 
 mouseClicked = function(){
