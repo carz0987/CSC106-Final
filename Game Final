@@ -217,7 +217,7 @@ var plane = function(px,py,ph)  {
 
 
 var score = 0;
-var numBlts = 100;
+var numBlts = 200;
 var bltScene = 0;
 var bltSpeed = 2.5;
 var nextScore = 1; // 0 count from bottom, 1 count from top
