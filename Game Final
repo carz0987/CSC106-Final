@@ -1,6 +1,6 @@
-//draw bitmoji
-// Qiang Dong
-    
+//BITMOJIS----------------------------------------------------------------------------------
+
+//Qiang Dong
 var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
     //shirt
 noStroke();
@@ -180,6 +180,7 @@ var drawMe = function(x,y,h){
 //
 drawMe();
 
+//PLANE-------------------------------------------------------------------------------------
 
 var plane = function(px,py,ph)  {
     fill(64, 145, 68);
@@ -213,15 +214,17 @@ var plane = function(px,py,ph)  {
     ellipse(px+126*ph/362,py+128*ph/362,5*ph/362,5*ph/362); //wheel
 };
 
+//GLOBAL VARS-------------------------------------------------------------------------------
 
-
-var score = 0;
-var numBlts = 200;
+var lives = 3;
+var numBlts = 100;
 var bltScene = 0;
-var bltSpeed = 2.5;
+var bltSpeed = 3;
+var planeSpeed = 3;
 var nextScore = 1; // 0 count from bottom, 1 count from top
 var currentScene = 0; //0 = splash screen, 1=game screen
 
+//BUTTON CLASS------------------------------------------------------------------------------
 
 var Button = function(config) {
     this.x = config.x || 0;
@@ -236,9 +239,9 @@ Button.prototype.draw = function() { // draws the button
     fill(0,0,0);
     rect(this.x, this.y, this.width, this.height, 35);
     fill(255, 255, 255);
-    textSize(27);
+    textSize(20);
     textAlign(LEFT, TOP);
-    text(this.label, this.x+15, this.y+this.height/5);
+    text(this.label, this.x+22, this.y+this.height/4);
 };
 
 Button.prototype.isMouseInside = function() { // geometry check for if the mouse is inside
@@ -261,7 +264,7 @@ var Pausebtn = new Button({ // Pause button
     label: "Pause", 
     onClick: function() {
         bltSpeed = 0;
-    
+        planeSpeed = 0;
     }
 });
 var Resumebtn = new Button({ // Resume button
@@ -269,12 +272,16 @@ var Resumebtn = new Button({ // Resume button
     y: -8,
     label: "Resume", 
     onClick: function() {
-        bltSpeed = 2.5;
+        bltSpeed = 3;
+        planeSpeed = 3;
     }
 });
 
+//GAME SCREEN-------------------------------------------------------------------------------
 
 var drawScene1 = function(){ //game scene
+
+//PLANE AND BULLETS-------------------------------------------------------------------------
 
 var drawplane = function (x,y,h)
 {
@@ -294,18 +301,23 @@ Plane.prototype.draw = function() {
 };
 
 Plane.prototype.hop = function() {
-    this.y -= 3;
+    this.y -= 3.5;
 };
 
 Plane.prototype.fall = function() {
-    this.y += 2;
+    this.y += 4;
 };
 
 Plane.prototype.checkForbltGrab = function(blt) {
-    if ((blt.x >= (this.x    )&& blt.x <= (this.x + 60 )) &&
-        (blt.y >= (this.y  ) && blt.y <= (this.y + 60 ))) {
+    if ((blt.x >= (this.x)&& blt.x <= (this.x + 60 )) &&
+        (blt.y >= (this.y) && blt.y <= (this.y + 60 ))) {
         blt.y = -400;  //blt disappears
-        score--;   //subtract one from global variable score
+        lives--;   //subtract one from global variable lives
+        if (lives === 0)
+        {
+            lives = 3;
+            drawScene1();
+        }
     }
 };
 
@@ -319,8 +331,9 @@ var Blt = function(x, y) {  //blt constructor
 
 Blt.prototype.draw = function(bx,by,bh) {
 stroke(0,0,0);
-fill(222, 200, 36);
+fill(255, 0, 0);
 ellipse( this.x+45,  this.y+43, 33, 7);
+fill(255, 255, 255);
 rect( this.x+52,  this.y+36, 47, 13, 4);
 rect( this.x+38,   this.y+39, 9, 8, 5);
 quad( this.x+45,   this.y+39,  this.x+45,  this.y+47,  this.x+53,  this.y+49,  this.x+53,  this.y+37);
@@ -331,16 +344,16 @@ quad( this.x+45,   this.y+39,  this.x+45,  this.y+47,  this.x+53,  this.y+49,  t
 var plane = new Plane(0, 0);
 
 var blts = [];     
-for (var i = 0; i <= numBlts ; i++) {  //place 40 blts in the array, spaced 40px for X, random y
-    blts.push(new Blt(i * 60 + 500, round(random(5, 395))));  //call Blt constructor
+for (var i = 0; i <= numBlts ; i++) {  //place blts in the array, spaced appropriately for X, random y
+    blts.push(new Blt(i * 40 + 300, round(random(5, 395))));  //call Blt constructor
 }
 
 
 
 draw = function() {
     // static
-    background(247, 252, 252);
-    fill(0,0, 0);
+    background(81, 164, 232);
+    fill(2, 105, 0);
     rectMode(CORNER);
     rect(0, height*0.00, width, height*0.10);  //ground
 var spike = function (x,y){
@@ -361,16 +374,16 @@ for (var j = -20; j<401; j+=32)
         blts[i].x -= bltSpeed;  //move blt left    
     }
 
-    if (plane.y>300  ) //restart
+    if (plane.y>300  )
     {
          drawScene1();
-         score = 0;
+         lives = 3;
          
     }
 
     fill(247, 244, 244);
     textSize(18);
-    text("Score: " + score, 20, 11);
+    text("Lives: " + lives, 20, 11);
     text("Speed: " + bltSpeed, 103, 11);
     currentScene = 1;
 
@@ -400,14 +413,15 @@ var Startbtn = new Button({ // start button
 });
 
 
-var splash = function () //splash scene
+var splash = function ()
     {
         background (27, 128, 78);
         fill(247, 247, 247);
         textSize(50);
-        text ("FLIPPY PLANES", 8, 33);
+        text ("       SOVIET", 12, 10);
+        text ("MISSILE DODGE", 3, 60);
         textSize(17);
-        text ("  Click the button to start the game!", 52,131);
+        text ("  Use the Space Bar to keep the plane in the air!", 12,131);
         text ("  By Qiang Dong, Jaymond Lei", 78, 351);
         Startbtn.draw();
         drawMe(68,134,126);
@@ -416,7 +430,7 @@ var splash = function () //splash scene
 };
 
 
-draw = function() { //scene change
+draw = function() {
     if (currentScene ===0 ){
         splash();
     }
@@ -426,7 +440,7 @@ draw = function() { //scene change
 
 };
 
-mouseClicked = function(){ //button click
+mouseClicked = function(){
      if ( currentScene === 0){ 
         Startbtn.handleMouseClick();
      }
@@ -440,3 +454,5 @@ mouseClicked = function(){ //button click
         
      }
 };
+
+
