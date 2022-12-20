@@ -1,6 +1,5 @@
 //draw bitmoji
 // Qiang Dong
-function drawDong(){
     
 var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
     //shirt
@@ -83,9 +82,9 @@ var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
     drawnose(bitmojiX,bitmojiY,bitmojiH);
     
 };
-drawbitmoji(98,101,100);
-}
-drawDong();
+drawbitmoji(100,100,100);
+
+
 //
 // Jaymond Lei
 var drawHairAndBody = function(x,y,h)
@@ -384,6 +383,8 @@ for (var j = -20; j<401; j+=32)
     plane.draw();
     Pausebtn.draw();
     Resumebtn.draw(); 
+    drawbitmoji(258,338,40);
+    drawMe(334,355,45);
 };
 
 };
@@ -410,7 +411,7 @@ var splash = function ()
         text ("  By Qiang Dong, Jaymond Lei", 78, 351);
         Startbtn.draw();
         drawMe(68,134,126);
-        drawDong(42,65,108);
+        drawbitmoji(100,100,100);
         currentScene = 0;
 };
 
