@@ -1,3 +1,5 @@
+//draw bitmoji
+// Qiang Dong
 function drawDong(){
     
 var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
@@ -84,6 +86,8 @@ var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
 drawbitmoji(98,101,100);
 }
 drawDong();
+//
+// Jaymond Lei
 var drawHairAndBody = function(x,y,h)
 {
     var size = h/362;
@@ -174,30 +178,70 @@ var drawMe = function(x,y,h){
     glasses(x,y,h);
     initials(x,y,h);
 };
-
+//
 drawMe();
 
-var currentTime = 0;
-var currentScene = 0;
 
-//button code
+var plane = function(px,py,ph)  {
+    fill(64, 145, 68);
+    rect(px+125*ph/225, py+101*ph/225, 63*ph/225, 19*ph/225);
+    ellipse(px+156*ph/225,py+104*ph/225,30*ph/225,7*ph/225);
+    triangle(px+127*ph/225, py+102*ph/225, px+67*ph/225, py+99*ph/225, px+127*ph/225, py+121*ph/225);
+    rect(px+188*ph/225, py+104*ph/225, 8*ph/225, 11*ph/225);
+    line(px+193*ph/225, py+133*ph/225, px+193*ph/225, py+87*ph/225);
+    ellipse(px+72*ph/225,py+94*ph/225,15*ph/225,13*ph/225);
+    line(px+147*ph/225,py+109*ph/225,px+134*ph/225,py+93*ph/225); //top
+    line(px+136*ph/225,py+109*ph/225,px+146*ph/225,py+93*ph/225); //top
+    line(px+171*ph/225,py+109*ph/225,px+161*ph/225,py+93*ph/225); //top
+    line(px+160*ph/225,py+109*ph/225,px+172*ph/225,py+93*ph/225); //top
+    line(px+147*ph/225,py+123*ph/225,px+137*ph/225,py+114*ph/225); //bottom
+    line(px+136*ph/225,py+123*ph/225,px+144*ph/225,py+114*ph/225); //bottom
+    line(px+172*ph/225,py+123*ph/225,px+163*ph/225,py+114*ph/225); //bottom
+    line(px+161*ph/225,py+123*ph/225,px+171*ph/225,py+114*ph/225); //bottom
+    ellipse(px+154*ph/225,py+93*ph/225,51*ph/225,4*ph/225);
+    ellipse(px+154*ph/225,py+122*ph/225,51*ph/225,4*ph/225);
+    //front wheel
+    fill(0, 0, 0);
+    line(px+172*ph/225,py+123*ph/225,px+186*ph/225,py+132*ph/225); //leg
+    ellipse(px+181*ph/225,py+131*ph/225,13*ph/225,13*ph/225); //wheel
+    fill(247, 2225, 247);
+    ellipse(px+181*ph/225,py+131*ph/225,8*ph/225,8*ph/225); //wheel
+    //back wheel
+    fill(0, 0, 0);
+    line(px+128*ph/225,py+123*ph/225,px+126*ph/225,py+127*ph/225); //leg
+    ellipse(px+126*ph/225,py+128*ph/225,8*ph/225,8*ph/225); //wheel
+    fill(249, 252, 249);
+    ellipse(px+126*ph/225,py+128*ph/225,5*ph/225,5*ph/225); //wheel
+};
+
+
+
+var score = 0;
+var numBlts = 100;
+var bltScene = 0;
+var bltSpeed = 2.5;
+var nextScore = 1; // 0 count from bottom, 1 count from top
+var currentScene = 0; //0 = splash screen, 1=game screen
+
+
 var Button = function(config) {
     this.x = config.x || 0;
     this.y = config.y || 0;
-    this.width = config.width || 150;
+    this.width = config.width || 92;
     this.height = config.height || 50;
     this.label = config.label || "Click";
     this.onClick = config.onClick || function() {};
 };
 
 Button.prototype.draw = function() { // draws the button
-    fill(22, 24, 33);
-    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0,0,0);
+    rect(this.x, this.y, this.width, this.height, 35);
     fill(255, 255, 255);
-    textSize(25);
+    textSize(27);
     textAlign(LEFT, TOP);
-    text(this.label, this.x+35, this.y+this.height/5);
+    text(this.label, this.x+15, this.y+this.height/5);
 };
+
 Button.prototype.isMouseInside = function() { // geometry check for if the mouse is inside
     return mouseX > this.x &&
            mouseX < (this.x + this.width) &&
@@ -206,51 +250,185 @@ Button.prototype.isMouseInside = function() { // geometry check for if the mouse
 };
 
 Button.prototype.handleMouseClick = function() { // if the geometry check is true then do onCLick
-    //if (this.isMouseInside()) {
+    if (this.isMouseInside()) {
         this.onClick();
-    //}
+    }
 };
 
 
-
-//start button 
-var Startbtn = new Button({ //button1
-    x: 117,
-    y: 290,
-    label: "START",
+var Pausebtn = new Button({ // start button
+    x: 300,
+    y: -8,
+    label: "Pause", 
     onClick: function() {
-        
+        bltSpeed = false;
     }
 });
-//splash scene
-var splash =function(){ //Starting scene
-    currentScene = 0;
-    background (65, 168, 65);
-    fill(250, 245, 250);
-    textSize(30);
-    text("FLIPPY PLANES", 79, 54); //title text
-    textSize(14);
-    text ("Click Start to start the game!", 108,121); //subtext
-    text (" by Jaymond Lei, and Qiang Dong ", 84, 356); //authors
-    Startbtn.draw();
-    currentScene = 0;
-    
-    //bitmojis
-    
-    drawMe(75,131,131);
-    drawDong();
-};
-splash();
+var Resumebtn = new Button({ // start button
+    x: -28,
+    y: 290,
+    label: "Resume", 
+    onClick: function() {
+        bltSpeed = true;
+    }
+});
 
+
+
+var drawScene1 = function(){ //game scene
+
+var drawplane = function (x,y,h)
+{
+    plane(x,y,h,h);
+};
+
+//plane object class
+var Plane = function(x, y) {             //plane constructor
+    this.x = x;
+    this.y = y;
+    this.blts = 0;              // Score
+};
+
+Plane.prototype.draw = function() {
+    this.y = constrain(this.y, 0, height-85);
+    plane(this.x,this.y, 154);
+};
+
+Plane.prototype.hop = function() {
+    this.y -= 3;
+};
+
+Plane.prototype.fall = function() {
+    this.y += 2;
+};
+
+Plane.prototype.checkForbltGrab = function(blt) {
+    if ((blt.x >= this.x && blt.x <= (this.x + 40)) &&
+        (blt.y >= this.y && blt.y <= (this.y + 40))) {
+        blt.y = -400;  //blt disappears
+        score--;   //subtract one from global variable score
+    }
+};
+
+
+//blts object class
+var Blt = function(x, y) {  //blt constructor
+    this.x = x;
+    this.y = y;
+};
+
+
+Blt.prototype.draw = function(bx,by,bh) {
+stroke(0,0,0);
+fill(222, 200, 36);
+ellipse(this.x+163, this.y+250, 33, 7);
+rect(this.x+173, this.y+242, 47, 13, 4);
+rect(this.x+158,  this.y+245, 9, 8, 5);
+quad(this.x+174,  this.y+255, this.x+166, this.y+253, this.x+166, this.y+246, this.x+174, this.y+243);
+
+
+};
+
+var plane = new Plane(0, 100);
+
+var blts = [];     
+for (var i = 0; i <= numBlts ; i++) {  //place 40 blts in the array, spaced 40px for X, random y
+    blts.push(new Blt(i * 150 + 300, random(-180, 250)));  //call Blt constructor
+}
+
+
+
+draw = function() {
+    // static
+    background(247, 252, 252);
+    fill(0,0, 0);
+    rectMode(CORNER);
+    rect(0, height*0.00, width, height*0.10);  //top dirt at planes feet
+
+
+    for (var i = 0; i < blts.length; i++) {
+        blts[i].draw();      //draw a Blt
+        plane.checkForbltGrab(blts[i]);  
+        blts[i].x -= bltSpeed;  //move blt left    
+    }
+
+    fill(247, 244, 244);
+    textSize(18);
+    text("Score: " + score, 20, 11);
+    text("Speed: " + bltSpeed, 131, 11);
+    currentScene = 1;
+
+
+    if (keyIsPressed && key.code === 32) {
+        plane.hop();
+    } else {
+        plane.fall();
+    }
+    plane.draw();
+    Pausebtn.draw();
+    //Resumebtn.draw(); 
+};
+
+};
+
+var Startbtn = new Button({ // start button
+    x: 143,
+    y: 290,
+    label: "Start", 
+    onClick: function() {
+        drawScene1();
+    }
+});
+
+
+var splash = function ()
+    {
+        background (27, 128, 78);
+        fill(247, 247, 247);
+        textSize(23);
+        text ("  Click the button to start the game!", 13,47);
+        text ("  By Qiang Dong, Jaymond Lei", 32, 351);
+        Startbtn.draw();
+        drawMe(68,134,126);
+        drawDong(42,65,108);
+        currentScene = 0;
+};
+
+var drawScene2 = function() { 
+    text("GAME OVER!",100,100);   
+    
+
+};
+
+draw = function() {
+      if (plane.y<275 )
+    {
+        drawScene2();
+    }  
+    
+    
+};
 draw = function() {
     if (currentScene ===0 ){
         splash();
     }
     else if (currentScene === 1) {
-        
+        drawScene1();
     }
+
 };
 
-mouseClicked = function() {
-    Startbtn.handleMouseClick();  
+mouseClicked = function(){
+     if ( currentScene === 0){
+        Startbtn.handleMouseClick();
+     }
+     if ( currentScene === 1){
+        Pausebtn.handleMouseClick();
+        
+     }
+     
+     if ( currentScene === 1){
+        Resumebtn.handleMouseClick();
+        
+     }
 };
