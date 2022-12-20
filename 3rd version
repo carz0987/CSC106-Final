@@ -1,4 +1,7 @@
 //draw bitmoji
+// Qiang Dong
+function drawDong(){
+    
 var drawshirt = function(bitmojiX,bitmojiY,bitmojiH){
     //shirt
 noStroke();
@@ -6,8 +9,8 @@ fill(179, 143, 77);
     quad(bitmojiX+151*bitmojiH/150,bitmojiY+202*bitmojiH/150,bitmojiX+255*bitmojiH/150,bitmojiY+199*bitmojiH/150,bitmojiX+210*bitmojiH/150,bitmojiY+177*bitmojiH/150,bitmojiX+189*bitmojiH/150,bitmojiY+175*bitmojiH/150); //shirt
     quad(bitmojiX+132*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+274*bitmojiH/150,bitmojiY+240*bitmojiH/150,bitmojiX+254*bitmojiH/150,bitmojiY+198*bitmojiH/150,bitmojiX+152*bitmojiH/150,bitmojiY+201*bitmojiH/150); //shirt bottom
 fill(247, 244, 244);
-    rect(bitmojiX+162*bitmojiH/150,bitmojiY+216*bitmojiH/150,86*bitmojiH/150,13*bitmojiH/150); //top on shirt
-    rect(bitmojiX+158*bitmojiH/150,bitmojiY+233*bitmojiH/150,93*bitmojiH/150,6*bitmojiH/150); //bottom on shirt
+    rect(bitmojiX+160*bitmojiH/150,bitmojiY+216*bitmojiH/150,86*bitmojiH/150,13*bitmojiH/150); //top on shirt
+    rect(bitmojiX+157*bitmojiH/150,bitmojiY+233*bitmojiH/150,93*bitmojiH/150,6*bitmojiH/150); //bottom on shirt
 
 };
 var drawneck = function(bitmojiX,bitmojiY,bitmojiH){
@@ -56,6 +59,8 @@ stroke(107, 78, 56);
     
 line(bitmojiX+250*bitmojiH/150,bitmojiY+239*bitmojiH/150,bitmojiX+244*bitmojiH/150,bitmojiY+206*bitmojiH/150); //right shirt line
     line(bitmojiX+156*bitmojiH/150,bitmojiY+241*bitmojiH/150,bitmojiX+162*bitmojiH/150,bitmojiY+210*bitmojiH/150); //left shirt line
+fill(1, 4, 10);
+    text("QD",bitmojiX+216*bitmojiH/150,bitmojiY+207*bitmojiH/150);
     
 };
 var drawnose = function(bitmojiX,bitmojiY,bitmojiH){
@@ -78,7 +83,105 @@ var drawbitmoji = function (bitmojiX,bitmojiY,bitmojiH){
     drawnose(bitmojiX,bitmojiY,bitmojiH);
     
 };
-drawbitmoji(100,141,39);
+drawbitmoji(98,101,100);
+}
+drawDong();
+//
+// Jaymond Lei
+var drawHairAndBody = function(x,y,h)
+{
+    var size = h/362;
+    
+    fill(0, 59, 23);
+    quad(x+266*size,y+230*size,x+136*size,y+227*size,x+100*size,y+362*size,x+315*size,y+362*size);//torso
+    fill(0, 0, 0);
+    bezier(x+283*size,y+183*size,x+313*size,y+71*size,x+78*size,y+41*size,x+127*size,y+180*size);//hair
+};
+//var eyesY = 77;
+//var mouthY =117;
+
+var faceSideburns = function(x,y,h)
+{
+    var size = h/362;
+//eyes, mouth, sideburns
+    fill(255, 247, 176);
+    ellipse(x+202*size, y+186*size, 132*size, 132*size);
+    fill(0,0,0);
+    ellipse(x+276*size,y+147*size, 55*size, 83*size);
+    noFill();
+    line(x+171*size, y+177*size, x+140*size, y+177*size);
+    line(x+240*size, y+177*size, x+209*size, y+177*size);
+    line(x+230*size, y+217*size, x+163*size, y+217*size);
+};
+
+var faceFeat = function(x,y,h)
+{
+    var size = h/362;
+    fill(0, 0, 0);
+    rect(x+136*size,y+132*size,107*size,-26*size);
+    fill(255, 247, 176);
+    //var sidebX = 37;
+    //var sidebY = 30;
+    rect(x+130*size,y+176*size,7*size,35*size);
+    rect(x+263*size,y+181*size,15*size,35*size);
+    fill(0, 0, 0);
+    rect(x+125*size,y+154*size,7*size,35*size);
+    rect(x+275*size,y+159*size,15*size,35*size);
+};
+
+var stache = function(x,y,h)
+{
+    var size = h/362;
+    fill(0, 0, 0);
+    //eyebrows
+    rect(x+206*size,y+148*size,43*size,3*size);
+    rect(x+132*size,y+148*size,43*size,3*size);
+    //moustache
+    rect(x+162*size,y+204*size,25*size,3*size);
+    rect(x+193*size,y+204*size,25*size,3*size);
+};
+
+var glasses = function(x,y,h)
+{
+    var size = h/362;
+    //glasses
+    fill(0, 0, 0);
+    rect(x+130*size,y+160*size,160*size,3*size);
+    rect(x+132*size,y+183*size,46*size,3*size);
+    rect(x+202*size,y+183*size,51*size,3*size);
+    rect(x+202*size,y+183*size,4*size,-22*size);
+    rect(x+249*size,y+183*size,4*size,-22*size);
+    rect(x+174*size,y+183*size,4*size,-22*size);
+    rect(x+133*size,y+183*size,4*size,-22*size);
+};
+
+var initials = function(x,y,h)
+{
+    var size = h/362;
+    //initials
+    stroke(255, 255, 255);
+    fill(255, 255, 255);
+    rect(x+182*size,y+289*size,4*size,56*size);
+    rect(x+228*size,y+289*size,4*size,57*size);
+    rect(x+231*size,y+341*size,40*size,5*size);
+    rect(x+144*size,y+341*size,40*size,5*size);
+    rect(x+144*size,y+346*size,4*size,-17*size);
+};
+
+var drawMe = function(x,y,h){
+    var size = h/100;
+    stroke(0, 0, 0);
+    drawHairAndBody(x,y,h);
+    faceSideburns(x,y,h);
+    faceFeat(x,y,h);
+    stache(x,y,h);
+    glasses(x,y,h);
+    initials(x,y,h);
+};
+//
+drawMe();
+
+
 var plane = function(px,py,ph)  {
     fill(64, 145, 68);
     rect(px+125*ph/225, py+101*ph/225, 63*ph/225, 19*ph/225);
@@ -196,7 +299,7 @@ Plane.prototype.hop = function() {
 };
 
 Plane.prototype.fall = function() {
-    this.y += 3;
+    this.y += 2;
 };
 
 Plane.prototype.checkForbltGrab = function(blt) {
@@ -281,12 +384,13 @@ var Startbtn = new Button({ // start button
 var splash = function ()
     {
         background (27, 128, 78);
-        fill(8, 2, 8);
-        textSize(20);
-        text ("Click the button to start the frogger game", 13,47);
-        text ("  by Qiang", 248, 241);
+        fill(247, 247, 247);
+        textSize(23);
+        text ("  Click the button to start the game!", 13,47);
+        text ("  By Qiang Dong, Jaymond Lei", 32, 351);
         Startbtn.draw();
-        drawbitmoji(42,65,108);
+        drawMe(68,134,126);
+        drawDong(42,65,108);
         currentScene = 0;
 };
 
