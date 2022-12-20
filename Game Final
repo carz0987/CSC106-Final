@@ -361,7 +361,7 @@ for (var j = -20; j<401; j+=32)
         blts[i].x -= bltSpeed;  //move blt left    
     }
 
-    if (plane.y>300  )
+    if (plane.y>300  ) //restart
     {
          drawScene1();
          score = 0;
@@ -400,7 +400,7 @@ var Startbtn = new Button({ // start button
 });
 
 
-var splash = function ()
+var splash = function () //splash scene
     {
         background (27, 128, 78);
         fill(247, 247, 247);
@@ -416,7 +416,7 @@ var splash = function ()
 };
 
 
-draw = function() {
+draw = function() { //scene change
     if (currentScene ===0 ){
         splash();
     }
@@ -426,7 +426,7 @@ draw = function() {
 
 };
 
-mouseClicked = function(){
+mouseClicked = function(){ //button click
      if ( currentScene === 0){ 
         Startbtn.handleMouseClick();
      }
