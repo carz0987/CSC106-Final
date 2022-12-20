@@ -256,15 +256,16 @@ Button.prototype.handleMouseClick = function() { // if the geometry check is tru
 };
 
 
-var Pausebtn = new Button({ // start button
+var Pausebtn = new Button({ // Pause button
     x: 300,
     y: -8,
     label: "Pause", 
     onClick: function() {
         bltSpeed = 0;
+    
     }
 });
-var Resumebtn = new Button({ // start button
+var Resumebtn = new Button({ // Resume button
     x: 195,
     y: -8,
     label: "Resume", 
@@ -272,7 +273,6 @@ var Resumebtn = new Button({ // start button
         bltSpeed = 2.5;
     }
 });
-
 
 
 var drawScene1 = function(){ //game scene
@@ -344,12 +344,29 @@ draw = function() {
     fill(0,0, 0);
     rectMode(CORNER);
     rect(0, height*0.00, width, height*0.10);  //top dirt at planes feet
+var spike = function (x,y){
+    triangle(x+0,y+401,x+42,y+401,x+21,y+375);
+    };
+for (var j = -20; j<401; j+=32)
+{
+
+    fill(0, 0, 0);
+    spike(j,1);
+
+}
 
 
     for (var i = 0; i < blts.length; i++) {
         blts[i].draw();      //draw a Blt
         plane.checkForbltGrab(blts[i]);  
         blts[i].x -= bltSpeed;  //move blt left    
+    }
+
+    if (plane.y>300  )
+    {
+         drawScene1();
+         score = 0;
+         
     }
 
     fill(247, 244, 244);
@@ -370,6 +387,7 @@ draw = function() {
 };
 
 };
+
 
 var Startbtn = new Button({ // start button
     x: 143,
@@ -394,12 +412,7 @@ var splash = function ()
         currentScene = 0;
 };
 
-var drawScene2 = function() { 
-    text("GAME OVER!",100,100);   
-    
 
-
-};
 draw = function() {
     if (currentScene ===0 ){
         splash();
@@ -407,9 +420,7 @@ draw = function() {
     else if (currentScene === 1) {
         drawScene1();
     }
-    else if (currentScene === 1 && plane <= 200){
-        drawScene2();
-    }
+
 };
 
 mouseClicked = function(){
