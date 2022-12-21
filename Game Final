@@ -301,11 +301,11 @@ Plane.prototype.draw = function() {
 };
 
 Plane.prototype.hop = function() {
-    this.y -= 3.5;
+    this.y -= planeSpeed;
 };
 
 Plane.prototype.fall = function() {
-    this.y += 4;
+    this.y += planeSpeed;
 };
 
 Plane.prototype.checkForbltGrab = function(blt) {
